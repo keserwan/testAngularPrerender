@@ -1,0 +1,69 @@
+{
+  "npmScope": "abc-xzy-web",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "website": {
+      "tags": []
+    },
+    "adminOLD": {
+      "tags": []
+    },
+    "website-e2e": {
+      "tags": []
+    },
+    "utilities": {
+      "tags": ["models"]
+    },
+    "shared": {
+      "tags": []
+    },
+    "material": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
+    },
+    "flight": {
+      "tags": []
+    },
+    "trip": {
+      "tags": []
+    },
+    "about": {
+      "tags": []
+    },
+    "agent": {
+      "tags": []
+    },
+    "camp": {
+      "tags": []
+    },
+    "game": {
+      "tags": []
+    },
+    "giftcard": {
+      "tags": []
+    },
+    "team": {
+      "tags": []
+    },
+    "home": {
+      "tags": []
+    },
+    "profile": {
+      "tags": []
+    },
+    "admin": {
+      "tags": []
+    },
+    "admin-e2e": {
+      "tags": []
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc/apps/website",
+    "types": [
+      "jasmine", "node"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "../../libs/material/src/index.ts"
+  ],
+  "exclude": ["src/test.ts", "**/*.spec.ts","**/testing/*"]
+   
+}

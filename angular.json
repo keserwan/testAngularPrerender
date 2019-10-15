@@ -1,0 +1,1183 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "website": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/website",
+      "sourceRoot": "apps/website/src",
+      "prefix": "abc-xzy-web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            
+            "outputPath": "dist/website/browser",
+            "index": "apps/website/src/index.html",
+            "main": "apps/website/src/main.ts",
+            "tsConfig": "apps/website/tsconfig.app.json",
+            "polyfills": "apps/website/src/polyfills.ts",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/website/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+               
+              "apps/website/src/manifest.json"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "apps/website/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/utilities/src/lib/variables"]
+            },
+            "scripts": [
+              
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "outputPath": "dist/website/browser/",
+              "baseHref": "/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/website/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-en": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "outputPath": "dist/website/browser/en/",
+              "i18nFile": "apps/website/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/en/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/website/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-ar": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+               ],
+              "serviceWorker": true,
+              "outputPath": "dist/website/browser/ar/",
+              "i18nFile": "apps/website/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar-LBN",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/ar/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/website/src/styles.ar.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "ar": {
+              "aot": true,
+              "outputPath": "dist/website/ar/",
+              "i18nFile": "apps/website/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar-LBN",
+              "fileReplacements": [
+               ],
+              "i18nMissingTranslation": "error",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/website/src/styles.ar.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/website/en/",
+              "i18nFile": "apps/website/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/website/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "website:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "website:build:production"
+            },
+            "en": {
+              "browserTarget": "website:build:en"
+            },
+            "ar": {
+              "browserTarget": "website:build:ar"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "website:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/website/src/test.ts",
+            "karmaConfig": "apps/website/karma.conf.js",
+            "polyfills": "apps/website/src/polyfills.ts",
+            "tsConfig": "apps/website/src/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "apps/website/src/styles.scss"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/website/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+              "apps/website/src/manifest.json"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/website/tsconfig.app.json",
+              "apps/website/src/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/website/server",
+            "main": "apps/website/src/main.server.ts",
+            "tsConfig": "apps/website/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "outputPath": "dist/website/server",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-en": {
+              "outputHashing": "media",
+              "outputPath": "dist/website/server/en",
+              "i18nFile": "apps/website/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-ar": {
+              "outputHashing": "media",
+              "outputPath": "dist/website/server/ar",
+              "i18nFile": "apps/website/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar",
+              "i18nMissingTranslation": "error",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/website/src/environments/environment.ts",
+                  "with": "apps/website/src/environments/environment.prod.ts"
+                }
+               ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "flightApp": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/flightApp",
+      "sourceRoot": "apps/flightApp/src",
+      "prefix": "abc-xzy-web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/flightApp/browser",
+            "index": "apps/flightApp/src/index.html",
+            "main": "apps/flightApp/src/main.ts",
+            "tsConfig": "apps/flightApp/tsconfig.app.json",
+            "polyfills": "apps/flightApp/src/polyfills.ts",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/flightApp/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+               
+              "apps/flightApp/src/manifest.json"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "apps/flightApp/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/utilities/src/lib/variables"]
+            },
+            "scripts": [
+               
+            ]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "outputPath": "dist/flightApp/browser/",
+              "baseHref": "/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/flightApp/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-en": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "serviceWorker": true,
+              "outputPath": "dist/flightApp/browser/en/",
+              "i18nFile": "apps/flightApp/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/en/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/flightApp/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-ar": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+               ],
+              "serviceWorker": true,
+              "outputPath": "dist/flightApp/browser/ar/",
+              "i18nFile": "apps/flightApp/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar-LBN",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/ar/",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/flightApp/src/styles.ar.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "ar": {
+              "aot": true,
+              "outputPath": "dist/flightApp/ar/",
+              "i18nFile": "apps/flightApp/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar-LBN",
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+               ],
+              "i18nMissingTranslation": "error",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/flightApp/src/styles.ar.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/flightApp/en/",
+              "i18nFile": "apps/flightApp/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "styles": [
+                "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+                "apps/flightApp/src/styles.scss"
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "flightApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "flightApp:build:production"
+            },
+            "en": {
+              "browserTarget": "flightApp:build:en"
+            },
+            "ar": {
+              "browserTarget": "flightApp:build:ar"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "flightApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/flightApp/src/test.ts",
+            "karmaConfig": "apps/flightApp/karma.conf.js",
+            "polyfills": "apps/flightApp/src/polyfills.ts",
+            "tsConfig": "apps/flightApp/src/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+              "apps/flightApp/src/styles.scss"
+            ],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/flightApp/src/assets",
+                "output": "/assets"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+              "apps/flightApp/src/manifest.json"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/flightApp/tsconfig.app.json",
+              "apps/flightApp/src/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/flightApp/server",
+            "main": "apps/flightApp/src/main.server.ts",
+            "tsConfig": "apps/flightApp/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "outputPath": "dist/flightApp/server",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-en": {
+              "outputHashing": "media",
+              "outputPath": "dist/flightApp/server/en",
+              "i18nFile": "apps/flightApp/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            },
+            "production-ar": {
+              "outputHashing": "media",
+              "outputPath": "dist/flightApp/server/ar",
+              "i18nFile": "apps/flightApp/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar",
+              "i18nMissingTranslation": "error",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/flightApp/src/environments/environment.ts",
+                  "with": "apps/flightApp/src/environments/environment.prod.ts"
+                }
+               ],
+              "stylePreprocessorOptions": {
+                "includePaths": ["libs/utilities/src/lib/variables"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "admin": {
+      "projectType": "application",
+      "root": "apps/admin",
+      "sourceRoot": "apps/admin/src",
+      "prefix": "abc-xzy-web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/admin",
+            "index": "apps/admin/src/index.html",
+            "main": "apps/admin/src/main.ts",
+            "tsConfig": "apps/admin/tsconfig.app.json",
+            "polyfills": "apps/admin/src/polyfills.ts",
+            "assets": [
+              "apps/admin/src/assets",
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/manifest.json"
+            ],
+            "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
+              "apps/admin/src/assets/css/demo.css",
+              "apps/admin/src/assets/sass/app.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "apps/admin/src/styles.scss"
+            ],
+            "scripts": [],
+            "lazyModules": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "serviceWorker": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/admin/src/environments/environment.ts",
+                  "with": "apps/admin/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/admin/src/test.ts",
+            "karmaConfig": "./karma.conf.js",
+            "polyfills": "apps/admin/src/polyfills.ts",
+            "tsConfig": "apps/admin/tsconfig.spec.json",
+            "scripts": [],
+            "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.light.css",
+              "apps/admin/src/assets/css/demo.css",
+              "apps/admin/src/assets/sass/app.scss",
+              "node_modules/ngx-toastr/toastr.css",
+              "apps/admin/src/styles.scss"
+            ],
+            "assets": [
+              "apps/admin/src/assets",
+              "apps/admin/src/favicon.ico",
+              "apps/admin/src/manifest.json"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/admin/tsconfig.app.json",
+              "apps/admin/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**/*"]
+          }
+        }
+      }
+    },
+    "utilities": {
+      "root": "libs/utilities",
+      "sourceRoot": "libs\\utilities\\src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["libs\\utilities\\tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "shared",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/shared/tsconfig.lib.json",
+            "project": "libs/shared/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/shared/src/test.ts",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "karmaConfig": "libs/shared/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "abc-xzy-web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/material/tsconfig.lib.json",
+            "project": "libs/material/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/material/src/test.ts",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "karmaConfig": "libs/material/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "core": {
+      "projectType": "library",
+      "root": "libs/core",
+      "sourceRoot": "libs/core/src",
+      "prefix": "abc-xzy-web",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/core/tsconfig.lib.json",
+            "project": "libs/core/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core/tsconfig.lib.json",
+              "libs/core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/core/src/test.ts",
+            "tsConfig": "libs/core/tsconfig.spec.json",
+            "karmaConfig": "libs/core/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "flight": {
+      "projectType": "library",
+      "root": "libs/flight",
+      "sourceRoot": "libs/flight/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/flight/tsconfig.lib.json",
+            "project": "libs/flight/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/flight/tsconfig.lib.json",
+              "libs/flight/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/flight/src/test.ts",
+            "tsConfig": "libs/flight/tsconfig.spec.json",
+            "karmaConfig": "libs/flight/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "trip": {
+      "projectType": "library",
+      "root": "libs/trip",
+      "sourceRoot": "libs/trip/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/trip/tsconfig.lib.json",
+            "project": "libs/trip/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/trip/tsconfig.lib.json",
+              "libs/trip/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/trip/src/test.ts",
+            "tsConfig": "libs/trip/tsconfig.spec.json",
+            "karmaConfig": "libs/trip/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "about": {
+      "projectType": "library",
+      "root": "libs/about",
+      "sourceRoot": "libs/about/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/about/tsconfig.lib.json",
+            "project": "libs/about/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/about/tsconfig.lib.json",
+              "libs/about/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/about/src/test.ts",
+            "tsConfig": "libs/about/tsconfig.spec.json",
+            "karmaConfig": "libs/about/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "agent": {
+      "projectType": "library",
+      "root": "libs/agent",
+      "sourceRoot": "libs/agent/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/agent/tsconfig.lib.json",
+            "project": "libs/agent/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/agent/tsconfig.lib.json",
+              "libs/agent/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/agent/src/test.ts",
+            "tsConfig": "libs/agent/tsconfig.spec.json",
+            "karmaConfig": "libs/agent/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "camp": {
+      "projectType": "library",
+      "root": "libs/camp",
+      "sourceRoot": "libs/camp/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/camp/tsconfig.lib.json",
+            "project": "libs/camp/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/camp/tsconfig.lib.json",
+              "libs/camp/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/camp/src/test.ts",
+            "tsConfig": "libs/camp/tsconfig.spec.json",
+            "karmaConfig": "libs/camp/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "game": {
+      "projectType": "library",
+      "root": "libs/game",
+      "sourceRoot": "libs/game/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/game/tsconfig.lib.json",
+            "project": "libs/game/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/game/tsconfig.lib.json",
+              "libs/game/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/game/src/test.ts",
+            "tsConfig": "libs/game/tsconfig.spec.json",
+            "karmaConfig": "libs/game/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "giftcard": {
+      "projectType": "library",
+      "root": "libs/giftcard",
+      "sourceRoot": "libs/giftcard/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/giftcard/tsconfig.lib.json",
+            "project": "libs/giftcard/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/giftcard/tsconfig.lib.json",
+              "libs/giftcard/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/giftcard/src/test.ts",
+            "tsConfig": "libs/giftcard/tsconfig.spec.json",
+            "karmaConfig": "libs/giftcard/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "home": {
+      "projectType": "library",
+      "root": "libs/home",
+      "sourceRoot": "libs/home/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/home/tsconfig.lib.json",
+            "project": "libs/home/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/home/tsconfig.lib.json",
+              "libs/home/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/home/src/test.ts",
+            "tsConfig": "libs/home/tsconfig.spec.json",
+            "karmaConfig": "libs/home/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "profile": {
+      "projectType": "library",
+      "root": "libs/profile",
+      "sourceRoot": "libs/profile/src",
+      "prefix": "flight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "libs/profile/tsconfig.lib.json",
+            "project": "libs/profile/ng-package.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/profile/tsconfig.lib.json",
+              "libs/profile/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/profile/src/test.ts",
+            "tsConfig": "libs/profile/tsconfig.spec.json",
+            "karmaConfig": "libs/profile/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false,
+      "versionMismatch": false
+    },
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "protractor"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "karma"
+    }
+  },
+  "defaultProject": "website"
+}

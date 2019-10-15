@@ -1,0 +1,35 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es5",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "moment": [
+        "../node_modules/moment/min/moment.min.js"
+      ],
+      "@abc-xzy-web/*": ["@abc-xzy-web/*"],
+      "@abc-xzy-web/home": ["libs/home/src/index.ts"],
+      "@abc-xzy-web/about": ["libs/about/src/index.ts"],
+      "@abc-xzy-web/camp": ["libs/camp/src/index.ts"],
+      "@abc-xzy-web/game": ["libs/game/src/index.ts"],
+
+    }
+  },
+  "include": ["apps/**/*", "libs/**/*"],
+  "exclude": ["node_modules", "tmp"],
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false,
+    "enableIvy": false
+  }
+}

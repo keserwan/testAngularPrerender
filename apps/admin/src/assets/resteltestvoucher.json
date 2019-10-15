@@ -1,0 +1,55 @@
+{
+    "Tipo": "12",
+    "Nombre": "150419102114",
+    "Agencia": "FLY FOOT XML @",
+    "Parametros": {
+        "Reserva": {
+            "Afiliacion": "RS",
+            "Localizador_largo": "32808342",
+            "Localizador_corto": "28699526",
+            "Imptotres": "135.15",
+            "Forma_pago": "25",
+            "Observaciones": "",
+            "Bono": "RESTEL_120419164924",
+            "Hotel_datos": {
+                "Hot_afiliacion": "HA",
+                "Hot_codcobol": "962243",
+                "Hot_nombre": "THE MATURANA TEST RESORT",
+                "Hot_direccion": "DO NOT BOOK",
+                "Hot_poblacion": "MOLDAVIA TEST POBL",
+                "Hot_telefono": "111111111",
+                "Hot_plano": "606597_plano_map_-_MATURANA.jpg",
+                "Hot_logo": "",
+                "Hot_descripciones": "THIS HOTEL IS FOR API CLIENT TESTING ONLY NO GENUINE BOOKINGS CAN BE MADE AT THIS HOTEL. HOTUSA GROUP WILL NOT BE HELD RESPONSIBLE FOR BOOKINGS MADE AT THIS HOTEL xxxx",
+                "Hot_como_llegar": "THIS HOTEL IS FOR API CLIENT TESTING ONLY NO GENUINE BOOKINGS CAN BE MADE AT THIS HOTEL. HOTUSA GROUP WILL NOT BE HELD RESPONSIBLE FOR BOOKINGS MADE AT THIS HOTEL"
+            },
+            "Agencia_datos": {
+                "Ag_nombre": "FLY FOOT XML @",
+                "Ag_direccion": "BECHARA EL KHOURY ST DIGITAL DISTRIC BERYTECH 4 BEIRUT",
+                "Ag_codigo_postal": "000000",
+                "Ag_telefono": "96176707607",
+                "Ag_fax": "9611",
+                "Ag_agente": "XML"
+            },
+            "Titular": {
+                "Tit_nombre": "Ali Keserwan",
+                "Codcli": ""
+            },
+            "Lineas": {
+                "Linea": [
+                    {
+                        "Lin_fecha": "01/12/19",
+                        "Lin_fecha2": "04/12/19",
+                        "Lin_tipo_habitaciones": "full size bed (1 big bed)/Only Bed",
+                        "Lin_n_habitaciones": "1",
+                        "Lin_adultos": "2",
+                        "Lin_ninos": "0",
+                        "Lin_tipo_hab_cod": "DB",
+                        "Lin_cod_regimen": "OB"
+                    }
+                ]
+            },
+            "Divisa": "DO "
+        }
+    }
+}
