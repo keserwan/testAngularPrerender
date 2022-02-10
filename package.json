@@ -120,7 +120,7 @@
     "karma-phantomjs-launcher": "~1.0.4",
     "lodash": "~4.17.11",
     "ng-packagr": "~10.1.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "phantomjs-prebuilt": "~2.1.16",
     "prettier": "1.16.4",
     "protractor": "~5.4.0",
