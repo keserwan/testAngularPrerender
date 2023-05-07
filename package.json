@@ -97,7 +97,7 @@
     "ngx-toastr": "^11.1.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.803.9",
+    "@angular-devkit/build-angular": "^16.0.0",
     "@angular-devkit/build-ng-packagr": "~0.803.9",
     "@angular/cli": "~8.3.9",
     "@angular/compiler-cli": "~8.2.10",
@@ -131,6 +131,6 @@
     "tslint": "~5.17.0",
     "typescript": "~3.5.3",
     "webpack-bundle-analyzer": "^3.4.1",
-    "webpack-cli": "~3.3.6"
+    "webpack-cli": "~3.3.12"
   }
 }
